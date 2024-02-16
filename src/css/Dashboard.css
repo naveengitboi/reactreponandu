@@ -1,0 +1,30 @@
+table {
+  text-align: left;
+  border: none;
+  border-spacing: 0;
+  width: 100%;
+}
+th {
+  background-color: gray;
+  border-spacing: 0;
+}
+th,
+td {
+  border-spacing: 0;
+  padding: 1rem;
+  border: 0px solid white;
+}
+.actions button {
+  cursor: pointer;
+}
+.editBtn {
+  margin-right: 0.85rem;
+}
+
+.actions .editBtn:active {
+  background-color: rgb(57, 176, 255);
+}
+
+.actions .delBtn:active {
+  background-color: rgb(255, 16, 16);
+}
