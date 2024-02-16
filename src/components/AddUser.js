@@ -21,13 +21,25 @@ function AddUser(props) {
   const handleAddUser = (e) => {
     e.preventDefault()
     // console.log(userDetails)
-    const newUser = {
-      id: uuidv4(),
-      ...userDetails
+
+    let filled = true
+    Object.values(userDetails).forEach(value => {
+      if (value == '' || value == null) {
+        filled = false
+        //it means if user didnt fill completely then dont update the user detials
+      }
+    });
+    if (filled == true) {
+      const newUser = {
+        id: uuidv4(),
+        ...userDetails
+      }
+      addUserFunction(newUser)
+      navigate('/dashboard')
     }
 
-    addUserFunction(newUser)
-    navigate('/dashboard')
+
+
 
   }
 

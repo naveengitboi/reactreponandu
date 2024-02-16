@@ -1,0 +1,9 @@
+.footer {
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* grid-area: footer; */
+  background-color: rgb(223, 221, 198);
+}

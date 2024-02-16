@@ -7,6 +7,7 @@ import Login from './components/Login';
 import { useState } from 'react';
 import Register from './components/Register';
 import EditUserDetails from './components/EditUserDetails';
+import Footer from './components/Footer';
 
 const usersList = [
   {
@@ -45,12 +46,13 @@ const usersList = [
     phone: 125478210,
     skills: "reactjs python"
   },
+
 ]
 
 
 function App() {
 
-  const [userValid, setUserValid] = useState(true);
+  const [userValid, setUserValid] = useState(false);
   const [initialUserList, setInitialUserList] = useState(usersList)
   const deleteUser = (idParam) => {
     //filter goes through all users and check whether user.id and delete user are same or not. if not same returns the user as it is, otherwise it wont return the user, hence deleted the user/ updated the list of users//
@@ -88,6 +90,7 @@ function App() {
                 <Route path='/edituser/:id' element={<EditUserDetails updateDetailsFunction={updateUserDetails} />} />
               </Routes>
             </div>
+            <Footer />
           </div>
         ) : (
           <div className="signInPage">
