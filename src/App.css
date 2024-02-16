@@ -20,6 +20,7 @@ a {
   background-color: wheat;
   font-weight: 600;
   border-radius: 0.15rem;
+  cursor: pointer;
 }
 
 .blueBtn {
@@ -51,5 +52,5 @@ body {
 
 .routes {
   overflow-y: scroll;
-  padding: 3rem 5rem;
+  padding: 3rem 2.5rem;
 }

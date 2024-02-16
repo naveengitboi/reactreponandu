@@ -51,11 +51,27 @@ const usersList = [
 function App() {
 
   const [userValid, setUserValid] = useState(true);
-  const [initialUserList, setInitialUserLit] = useState(usersList)
+  const [initialUserList, setInitialUserList] = useState(usersList)
   const deleteUser = (idParam) => {
     //filter goes through all users and check whether user.id and delete user are same or not. if not same returns the user as it is, otherwise it wont return the user, hence deleted the user/ updated the list of users//
-    setInitialUserLit(initialUserList.filter((user) => {
+    setInitialUserList(initialUserList.filter((user) => {
       if (user.id != idParam) return user
+    }))
+  };
+
+  const addUserToList = (newUserDetails) => {
+    // console.log(newUserDetails)
+    setInitialUserList((prev) => ([...prev, newUserDetails]))
+  }
+
+  const updateUserDetails = (userEditId, userUpdatedDetails) => {
+    // console.log(id, userDetails)
+    setInitialUserList(initialUserList.map((oldUser) => {
+      if (oldUser.id == userEditId) {
+        return userUpdatedDetails;
+      } else {
+        return oldUser
+      }
     }))
   }
 
@@ -68,8 +84,8 @@ function App() {
             <div className="routes">
               <Routes>
                 <Route path='/dashboard' element={<Dashboard users={initialUserList} deleteUserFunc={deleteUser} />} />
-                <Route path='/adduser' element={<AddUser />} />
-                <Route path='/edituser/:id' element={<EditUserDetails />} />
+                <Route path='/adduser' element={<AddUser addUserFunction={addUserToList} />} />
+                <Route path='/edituser/:id' element={<EditUserDetails updateDetailsFunction={updateUserDetails} />} />
               </Routes>
             </div>
           </div>
